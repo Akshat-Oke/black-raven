@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cryptic Page</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap"
+    />
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: "Roboto", sans-serif;
+        color: white;
+      }
+
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #000, #333);
+        animation: animateBackground 10s linear infinite;
+      }
+
+      @keyframes animateBackground {
+        0% {
+          background-position: 0% 0%;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+
+      .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 70%;
+        max-width: 600px;
+      }
+
+      .content p {
+        margin: 1.5em 0;
+      }
+      img {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <img src="./image.png" alt="" />
+      <p>This page has been relocated.</p>
+      <p>It can be accessed through the URL that first led you here.</p>
+      <p>
+        This change was made so that you can't cheat your way by guesing the URL
+        from the reddit post.
+      </p>
+    </div>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      chat-icon="https:&#x2F;&#x2F;ravenism.pages.dev&#x2F;image.png"
+      intent="WELCOME"
+      chat-title="Black-Raven"
+      agent-id="fafc02f9-342a-4846-994b-060a73cb799b"
+      language-code="en"
+    ></df-messenger>
+  </body>
+</html>

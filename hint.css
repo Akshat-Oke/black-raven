@@ -1,0 +1,104 @@
+:root {
+  --df-messenger-font-color: rgb(200, 200, 200) !important;
+  --df-messenger-bot-message: rgb(17, 2, 34) !important;
+  --df-messenger-button-titlebar-color: rgb(46, 13, 90) !important;
+  --df-messenger-chat-background-color: black !important;
+  /* light green dark for user message bubble */
+  --df-messenger-user-message: rgb(7, 80, 77) !important;
+  /* input box should be light on dark background */
+  --df-messenger-input-box-color: rgb(29, 29, 29) !important;
+  --df-messenger-input-font-color: rgb(200, 200, 200) !important;
+  --df-messenger-input-placeholder-font-color: rgb(200, 200, 200) !important;
+  --df-messenger-minimized-chat-close-icon-color: gray !important;
+}
+df-messenger div.message {
+  text-align: left !important;
+}
+
+#hint-toggle {
+  font-family: "Space Mono", serif;
+  font-size: 1.4rem;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  margin: 0;
+  border: 2px solid white;
+  padding: 5px 10px;
+  transition: 0.2s;
+  user-select: none;
+  z-index: 10;
+  background-color: black;
+  line-height: normal;
+  animation: blink 0.3s linear 0.2s 3;
+}
+@keyframes blink {
+  0% {
+    background-color: black;
+  }
+  50% {
+    background-color: orange;
+  }
+  100% {
+    background-color: black;
+  }
+}
+#hint-toggle:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+}
+@media screen and (max-width: 600px) {
+  #hint-toggle,
+  #hint-toggle:hover {
+    background: black;
+  }
+}
+.show-hints #hint-toggle {
+  background-color: rgb(167, 117, 24);
+}
+
+.show-hints hint-em {
+  color: orange;
+  font-style: italic;
+}
+.show-hints hint-b {
+  font-weight: bold;
+}
+.show-hints .hint,
+.show-hints .hint * {
+  display: block;
+}
+.hint,
+.hint * {
+  display: none;
+  color: orange;
+  font-family: "AR One Sans", sans-serif;
+}
+.visits {
+  width: 100%;
+  text-align: center;
+  font-family: "AR One Sans", monospace;
+  font-size: 1rem;
+  color: rgb(25, 162, 158);
+  /* font-weight: bold; */
+}
+hint-blue {
+  display: inline-block;
+}
+.show-hints hint-blue {
+  color: rgb(47, 217, 211);
+  font-weight: bold;
+}
+
+#audio,
+.link {
+  text-align: center;
+  margin: 8px auto;
+  font-size: 1.3rem;
+  border: none;
+  padding: 5px;
+  color: aqua;
+  font-family: "Spectral", serif;
+}
+.visible {
+  display: initial;
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raven Reads.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Source+Serif+4:opsz,wght@8..60,500&family=Space+Mono&family=Spectral:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        color: rgb(238, 238, 238);
+        text-align: center;
+        background: linear-gradient(
+          45deg,
+          #084d38,
+          black 50%,
+          rgb(55, 29, 126) /* black 80% */
+        );
+        min-height: 100vh;
+        min-width: 100vw;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        background-size: 400% 400%;
+        background-repeat: no-repeat;
+        /* background-position: 50% 50%; */
+        animation: gradientAnimation 16s ease-in-out infinite;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      @media screen and (max-width: 600px) {
+        body {
+          background: linear-gradient(
+            45deg,
+            #0d6148,
+            black 50%,
+            rgb(66, 37, 148) /* black 80% */
+          );
+          background-size: 400% 200%;
+          animation-duration: 10s;
+        }
+      }
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 60%;
+        }
+        50% {
+          background-position: 100% 60%;
+        }
+        100% {
+          background-position: 0% 60%;
+        }
+      }
+      div#countdownTimer {
+        font-family: "Space Mono", monospace;
+        font-size: 10rem;
+        transition: 0.4s;
+      }
+      div#message,
+      div#submessage {
+        font-family: "AR One Sans", sans-serif;
+        font-size: 2.5rem;
+        transition: 0.4s;
+      }
+      div#submessage {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-top: 10px;
+      }
+      img {
+        margin-top: 20px;
+        width: 200px;
+      }
+      .after-countdown #countdownTimer {
+        font-size: 5rem !important;
+        margin-bottom: 8px;
+      }
+      .after-countdown #message {
+        font-size: 2rem;
+      }
+      @media screen and (max-width: 600px) {
+        div#countdownTimer {
+          font-size: 3.7rem;
+        }
+        div#message {
+          font-size: 1.5rem;
+        }
+        .after-countdown div#message {
+          font-size: 1.3rem;
+        }
+        img {
+          width: 150px;
+        }
+        .after-countdown #countdownTimer {
+          font-size: 3.7rem !important;
+        }
+      }
+      a {
+        /* border-radius: 30px; */
+        /* font-size: 30px; */
+        /* padding: 5px 18px; */
+        /* border: 1px solid white; */
+        font-family: "AR One Sans", sans-serif;
+        text-decoration: none;
+        color: rgb(34, 196, 160);
+        transition: 0.4s;
+      }
+      a:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      #countdown2 {
+        font-family: "Space Mono", monospace;
+        font-size: 3rem;
+        display: none;
+      }
+      #submessage2 {
+        font-family: "Spectral", serif;
+        font-size: 1rem;
+        line-height: 1.2;
+        display: none;
+      }
+
+      .after-countdown #countdown2 {
+        display: block;
+      }
+      .after-countdown #submessage2 {
+        display: block;
+      }
+      .left {
+        text-align: left;
+      }
+      div#submessage {
+        line-height: 1.6;
+        padding-top: 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="hint.css" />
+  </head>
+  <body class="after-countdown">
+    <div class="left">
+      <div id="countdownTimer" fade>The Raven Reads.</div>
+      <div id="message" fade>
+        The key to the Final Stand, a Pilish marvel commands.
+      </div>
+      <div id="submessage" fade>
+        A short story holds the key to the final destination, whose pieces are
+        scattered throughout this little world.<br />
+        A Pilish marvel, a subtle disguise.<br />
+        Everything is intertwined, fear not to step back and revisit the
+        past.<br />
+      </div>
+    </div>
+    <div class="after-countdown" fade>
+      <img src="./image.png" alt="Logo" />
+      <div id="countdown2"></div>
+      <div id="submessage2">
+        Midnights so dreary, tired and weary,<br />
+        Silently pondering volumes extolling all by-now obsolete lore.<br />
+        During my rather long nap - the weirdest tap!<br />
+        An ominous vibrating sound disturbing my chamber's antedoor.<br />
+      </div>
+    </div>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script>
+      // Set the end date.
+      const endTime = new Date("2023-10-19 12:00");
+      let timer;
+      // if (endTime < new Date()) {
+      //   updateText();
+      // } else {
+      //   timer = setInterval(() => {
+      //     countdownTimer("countdownTimer", endTime);
+      //   }, 1000);
+      //   countdownTimer("countdownTimer", endTime);
+      // }
+      function countdownTimer(elementId, endTime) {
+        const now = new Date();
+        const difference = endTime - now;
+        const hours = Math.floor(difference / (1000 * 60 * 60));
+        const minutes = Math.floor((difference / (1000 * 60)) % 60);
+        const seconds = Math.floor((difference / 1000) % 60);
+
+        if (seconds <= 0 && minutes <= 0 && hours <= 0) {
+          clearInterval(timer);
+          let typeSplit = new SplitType("[animate]", {
+            types: "lines, words, chars",
+            tagName: "span",
+          });
+          updateText();
+        }
+        document.getElementById(elementId).innerHTML =
+          hours + ":" + minutes + ":" + seconds;
+      }
+
+      function updateText() {}
+      startTimer2();
+      function startTimer2() {
+        let timer = setInterval(() => {
+          let endTime = new Date("2023-10-23 19:00");
+          countdownTimer("countdown2", endTime);
+        }, 1000);
+      }
+    </script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      chat-icon="https:&#x2F;&#x2F;ravenism.pages.dev&#x2F;image.png"
+      chat-title="Black-Raven"
+      agent-id="f8bde47d-dbbe-45ec-ab5c-506953093cf8"
+      language-code="en"
+    ></df-messenger>
+  </body>
+</html>
