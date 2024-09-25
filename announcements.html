@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Announcements</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css"
+    />
+    <link rel="stylesheet" href="./hint.css" />
+    <style>
+      .row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        /* flex overflow should wrap */
+        flex-wrap: wrap;
+      }
+      .row img {
+        width: 40%;
+      }
+      .row img:first-child {
+        margin-right: 10px;
+      }
+      img {
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Black Raven - Announcements</h1>
+    <h2>WhatsApp channel</h2>
+    <p>
+      Our Reddit account is suspended. (Did someone report it for no reason?) Announcements will posted here instead.
+      To get notifications about new announcements, join the channel
+      <a href="https://whatsapp.com/channel/0029Va91PZqHbFVD8tOA0A3L"
+        >https://whatsapp.com/channel/0029Va91PZqHbFVD8tOA0A3L</a
+      >
+    </p>
+    <p>
+      The Raven is available on Telegram as a bot.
+      <a href="https://t.me/blackraven314_bot" href="">@blackraven314_bot</a>
+    </p>
+    <h2>Prizes</h2>
+    <p>Most of the custom prizes have reached us.</p>
+    <img src="./images/delivered.jpg" alt="Delivered prizes">
+    <p>Winners get a choice to select one of the following prizes:</p>
+    <h4>1. Embroidered Cap</h4>
+    <img src="./images/prize-cap.png" alt="Cap" />
+    <h4>2. Metallic Keychain</h4>
+    <img src="./images/keychain.png" alt="Keychain" />
+    <h4>3. Bookmark</h4>
+    <div class="row">
+      <img src="./images/bookmark-2.png" alt="Bookmark 1" />
+      <img src="./images/bookmark-1.png" alt="Bookmark 1" />
+    </div>
+    <p>
+      <h2>Access all the QR codes here:</h2>
+      <a
+        href="https://drive.google.com/drive/folders/1V2evahgrRSiU2anOXQlRDa5MXUletd0r?usp=drive_link"
+        >Drive Link</a
+      >
+    </p>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      chat-icon="https:&#x2F;&#x2F;ravenism.pages.dev&#x2F;image.png"
+      intent="WELCOME_ANN"
+      chat-title="Black-Raven"
+      agent-id="fafc02f9-342a-4846-994b-060a73cb799b"
+      language-code="en"
+    ></df-messenger>
+  </body>
+</html>

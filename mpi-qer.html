@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Revisit in...</title>
+    <title>Raven Studies</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -73,7 +73,7 @@
         font-size: 1.1rem;
         line-height: 1.4;
         margin-top: 10px;
-        line-break: anywhere;
+        line-break: auto;
       }
       img {
         margin-top: 20px;
@@ -86,6 +86,11 @@
       .after-countdown #message {
         font-size: 2rem;
       }
+      #countdown2 {
+        font-family: "Space Mono", monospace;
+        font-size: 3rem;
+        display: none;
+      }
       @media screen and (max-width: 600px) {
         div#countdownTimer {
           font-size: 3.7rem;
@@ -94,13 +99,16 @@
           font-size: 1.5rem;
         }
         .after-countdown div#message {
-          font-size: 1.3rem;
+          font-size: 1.7rem;
         }
         img {
           width: 150px;
         }
         .after-countdown #countdownTimer {
           font-size: 3.7rem !important;
+        }
+        #countdown2 {
+          font-size: 2rem;
         }
       }
       a {
@@ -116,11 +124,7 @@
       a:hover {
         background: rgba(255, 255, 255, 0.5);
       }
-      #countdown2 {
-        font-family: "Space Mono", monospace;
-        font-size: 3rem;
-        display: none;
-      }
+
       #submessage2 {
         font-family: "Spectral", serif;
         font-size: 1rem;
@@ -149,10 +153,30 @@
     <div class="left">
       <div id="countdownTimer" fade>The Raven Studies.</div>
       <div id="message" fade>
-        Calculating the cerebral pathway, memories fervently splay, time points
-        the other way.<br />
+        Calculating the cerebral pathway, memories fervently splay,
+        <hint-em>time points the other way.</hint-em><br />
       </div>
-      <div id="submessage" fade></div>
+      <div id="submessage" fade-in>
+        <div class="teal">
+          <div>
+            Visit <a href="./instructions.html">/instructions</a> for
+            instructions. Those are not part of the puzzles themselves, which
+            are prepared and live throughout the end.
+          </div>
+        </div>
+        <div>
+          A secret hides on this page. Find it and combine with
+          <a href="./raven-flies-jeqr.html">Raven Codifies</a> to arrive on the
+          final stage.<br />
+          There were a total of 20 QR codes generated. The secret shared amongst
+          them was a 3-digit number.
+          <br />
+          <div class="hint">
+            Inspect. 1. Multiply the "_____ ____" with the four qr code's enigma
+            (Shamir). 2. Find the date.
+          </div>
+        </div>
+      </div>
     </div>
     <div fade-in>
       <img
@@ -170,135 +194,92 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <script>
-      let str = `SHV6emFoISBDb25ncmF0dWxhdGlvbnMgb24gdHJhdmVyc2luZyB0aGlzIHdpbmRpbmcgdHJhaWwsDQpUaHkgcHJlc2VuY2UsIGEgY2hlcmlzaGVkIGdlbSwgaW4gdGhpcyBuYXJyYXRpdmUncyB0YWxlLg0KV2VsbCBtZXQgb24gdGhpcyBqb3VybmV5LCB5b3VyIGNvbnRyaWJ1dGlvbiBkZWFyLA0KQW1pZHN0IHRoZSBsYWJ5cmludGggb2YgY29kZXMsIHlvdXIgcHJlc2VuY2Ugc2hpbmVzIGNsZWFyLg0KDQpDb21iaW5lIHRoZSBjcnlwdGljIHdoaXNwZXJzIGZyb20gdGhlIGNvZGVzLCBpbiB0aGVpciBkYW5jZSBzZWUgdGhlIG51bWJlciwgdGhlIHRydXRoLA0KTXVsdGlwbHkgdG8gaXQgdGhlIHByaW1lIGVudHJhbmNlIHRoYXQgZXhjaXRlZCB5b3UsIGEgZGFuY2UgdW5jb3V0aC4NClRvIGNhc3Qgb3V0IHRoZSBoaWRkZW4gc2VjcmV0LCBpbiB0aGUgc3ltcGhvbnkgb2YgY2x1ZXMsDQpCZSBmZWFybGVzcywgZm9yIHRoZSBhbnN3ZXJzLCB0aGUgZW5pZ21hIHN0cmV3cy4NCg0KQ29tYmluZSB0aGUgdHdvLCBudW1iZXJzIGVudHdpbmVkDQpUbyBnZXQgdGhlIGZpbmFsIGtleSwgaW4gc2VjcmV0cyBkZWZpbmVkDQpHaWZ0IHRoaXMga2V5IHRvIHRoZSBvbmUgZ3VhcmRpbmcgdGhlIHRoaW5raW5nIHJhdmVuLCB0aG91Z2h0cyBhbGlnbmVkDQpSZXZlYWwgY29uY2VhbGVkIHRydXRocywgaW4gd2lzZG9tIGVuc2hyaW5lZC4NCg0KVGhlIFJhdmVuIFdobyBXcm90ZSwgb25jZSBmbHlpbmcgaGlnaCBpbiB0aGUgc2t5LA0KRmVsbCB0byBpdHMgZGVtaXNlIHRoYXQgZGF5LCBhIHRhbGUgdGhhdCBtYWtlcyBvbmUgc2lnaC4NCkdvLCB0ZWxsIHRoaXMgZmx5aW5nIFJhdmVuIHRoZSBkYXRlIG9mIHRoZSBzdG9ybXkgbmlnaHQncyBpbGwgZmF0ZSwNClNsYXNoIHRocm91Z2ggdGhlIHRlbXBlc3QsIGluIGEgY2FkZW5jZSBvZiB0d28ncywgYW5kIG5vdCBiZWxhdGUuDQoNCk1vbnRocyBzaGFsbCBwYXNzIGxpa2Ugd2hpc3BlcnMgaW4gdGhlIHdpbmQsDQpUaGVuIGRheXMsIHRoZW4geWVhcnMsIHlvdXIgbWVzc2FnZSBtdXN0IHJlc2NpbmQuDQpDcnkgb3V0IHRvIHRoZSBSYXZlbiBpbiB0aGUgdGVtcGVzdCdzIG1pZ2h0LA0KVGhlIHRhbGUgb2YgaXRzIGZhbGwsIG9uIHRoYXQgc3Rvcm15IG5pZ2h0Lg0KDQpJbiB0aGUgZGFuY2Ugb2YgY29kZXMgYW5kIHRoZSBudW1iZXJzJyBlbWJyYWNlLA0KQ2FycnkgdGhlIG5hcnJhdGl2ZSB0aHJvdWdoIHRpbWUgYW5kIHNwYWNlLg0KRm9yIHRoZSBSYXZlbiB3aG8gb25jZSB3cm90ZSB3aXRoIHF1aWxsIGFuZCBpbmssDQpJdHMgdGFsZSBsaXZlcyBvbiwgbGV0IHlvdXIgdm9pY2UgYmUgdGhlIGxpbmsu`;
-      let dateStr =
-        (function () {
-          var q = Array.prototype.slice.call(arguments),
-            V = q.shift();
-          return q
-            .reverse()
-            .map(function (S, f) {
-              return String.fromCharCode(S - V - 39 - f);
-            })
-            .join("");
-        })(61, 157, 153, 149, 160, 151, 154, 149) +
-        (29)
-          .toString(36)
-          .toLowerCase()
-          .split("")
-          .map(function (h) {
-            return String.fromCharCode(h.charCodeAt() + -71);
-          })
-          .join("") +
-        (1).toString(36).toLowerCase() +
-        (function () {
-          var y = Array.prototype.slice.call(arguments),
-            T = y.shift();
-          return y
-            .reverse()
-            .map(function (A, t) {
-              return String.fromCharCode(A - T - 15 - t);
-            })
-            .join("");
-        })(22, 88, 70, 89) +
-        (2).toString(36).toLowerCase() +
-        (function () {
-          var q = Array.prototype.slice.call(arguments),
-            U = q.shift();
-          return q
-            .reverse()
-            .map(function (O, f) {
-              return String.fromCharCode(O - U - 10 - f);
-            })
-            .join("");
-        })(57, 116, 125) +
-        (0).toString(36).toLowerCase();
-      const _0x529913 = _0x5e02;
-      (function (_0x30f1c0, _0x218599) {
-        const _0x38418c = _0x5e02,
-          _0x23af68 = _0x30f1c0();
+      let str = `SHV6emFoISBDb25ncmF0dWxhdGlvbnMgb24gdHJhdmVyc2luZyB0aGlzIHdpbmRpbmcgdHJhaWwsDQpUaHkgcHJlc2VuY2UsIGEgY2hlcmlzaGVkIGdlbSwgaW4gdGhpcyBuYXJyYXRpdmUncyB0YWxlLg0KV2VsbCBtZXQgb24gdGhpcyBqb3VybmV5LCB5b3VyIGNvbnRyaWJ1dGlvbiBkZWFyLA0KQW1pZHN0IHRoZSBsYWJ5cmludGggb2YgY29kZXMsIHlvdXIgcHJlc2VuY2Ugc2hpbmVzIGNsZWFyLg0KDQpVc2UgV2lraXBlZGlhJ3MgUHl0aG9uIFNoYW1pciBvbiB0aGUgcXIgY29kZSBudW1iZXJzLCBpbiB0aGVpciBkYW5jZSBzZWUgdGhlIG51bWJlciwgdGhlIHRydXRoLA0KTXVsdGlwbHkgdGhpcyB0cnV0aCB0byB0aGUgcHJpbWUgZW50cmFuY2UgdGhhdCBleGNpdGVkIHlvdSwgYSBkYW5jZSB1bmNvdXRoLg0KVG8gY2FzdCBvdXQgdGhlIGhpZGRlbiBzZWNyZXQsIGluIHRoZSBzeW1waG9ueSBvZiBjbHVlcywNCkJlIGZlYXJsZXNzLCBmb3IgdGhlIGFuc3dlcnMsIHRoZSBlbmlnbWEgc3RyZXdzLg0KDQpUaGUgbXVsdGlwbGljYXRpb24gb2YgdGhlIHR3bzsgaXMgdGhlIHBhc3NwaHJhc2UgZW50d2luZWQNClRoYXQgeW91IG11c3QgdXNlLCBpbiBzZWNyZXRzIGRlZmluZWQNCkdpZnQgdGhpcyBwaHJhc2UgdG8gdGhlIG9uZSBndWFyZGluZyB0aGUgdGhpbmtpbmcgcmF2ZW4sIHRob3VnaHRzIGFsaWduZWQNClJldmVhbCBjb25jZWFsZWQgdHJ1dGhzLCBpbiB3aXNkb20gZW5zaHJpbmVkLg0KDQpUaGUgUmF2ZW4gV2hvIFdyb3RlLCBvbmNlIGZseWluZyBoaWdoIGluIHRoZSBza3ksDQpGZWxsIHRvIGl0cyBkZW1pc2UgdGhhdCBkYXksIGEgdGFsZSB0aGF0IG1ha2VzIG9uZSBzaWdoLg0KR28sIHRlbGwgdGhpcyBmbHlpbmcgUmF2ZW4gdGhlIGRhdGUgb2YgdGhlIHN0b3JteSBuaWdodCdzIGlsbCBmYXRlLA0KU2xhc2ggdGhyb3VnaCB0aGUgdGVtcGVzdCwgaW4gYSBjYWRlbmNlIG9mIHR3bydzLCBhbmQgbm90IGJlbGF0ZS4NCg0KTW9udGhzIHNoYWxsIHBhc3MgbGlrZSB3aGlzcGVycyBpbiB0aGUgd2luZCwNClRoZW4gZGF5cywgdGhlbiB5ZWFycywgeW91ciBtZXNzYWdlIG11c3QgcmVzY2luZC4NCkNyeSBvdXQgdG8gdGhlIFJhdmVuIGluIHRoZSB0ZW1wZXN0J3MgbWlnaHQsDQpUaGUgdGFsZSBvZiBpdHMgZmFsbCwgb24gdGhhdCBzdG9ybXkgbmlnaHQuDQoNCkluIHRoZSBkYW5jZSBvZiBjb2RlcyBhbmQgdGhlIG51bWJlcnMnIGVtYnJhY2UsDQpDYXJyeSB0aGUgbmFycmF0aXZlIHRocm91Z2ggdGltZSBhbmQgc3BhY2UuDQpGb3IgdGhlIFJhdmVuIHdobyBvbmNlIHdyb3RlIHdpdGggcXVpbGwgYW5kIGluaywNCkl0cyB0YWxlIGxpdmVzIG9uLCBsZXQgeW91ciB2b2ljZSBiZSB0aGUgbGluay4=`;
+      const _0x2b5a26 = _0x4571;
+      (function (_0x4a303d, _0x244cd7) {
+        const _0x10c400 = _0x4571,
+          _0x224ee8 = _0x4a303d();
         while (!![]) {
           try {
-            const _0x3ab2a5 =
-              (-parseInt(_0x38418c(0x1b2)) / 0x1) *
-                (-parseInt(_0x38418c(0x1ac)) / 0x2) +
-              (parseInt(_0x38418c(0x1b8)) / 0x3) *
-                (parseInt(_0x38418c(0x1aa)) / 0x4) +
-              parseInt(_0x38418c(0x1b3)) / 0x5 +
-              (-parseInt(_0x38418c(0x1b9)) / 0x6) *
-                (-parseInt(_0x38418c(0x1ad)) / 0x7) +
-              parseInt(_0x38418c(0x1b0)) / 0x8 +
-              (parseInt(_0x38418c(0x1b1)) / 0x9) *
-                (-parseInt(_0x38418c(0x1b6)) / 0xa) +
-              (-parseInt(_0x38418c(0x1b4)) / 0xb) *
-                (parseInt(_0x38418c(0x1af)) / 0xc);
-            if (_0x3ab2a5 === _0x218599) break;
-            else _0x23af68["push"](_0x23af68["shift"]());
-          } catch (_0xb1178b) {
-            _0x23af68["push"](_0x23af68["shift"]());
+            const _0xf81ad0 =
+              parseInt(_0x10c400(0x1f6)) / 0x1 +
+              (parseInt(_0x10c400(0x1ea)) / 0x2) *
+                (-parseInt(_0x10c400(0x1f0)) / 0x3) +
+              parseInt(_0x10c400(0x1f3)) / 0x4 +
+              -parseInt(_0x10c400(0x1e9)) / 0x5 +
+              (-parseInt(_0x10c400(0x1f4)) / 0x6) *
+                (-parseInt(_0x10c400(0x1eb)) / 0x7) +
+              (-parseInt(_0x10c400(0x1f5)) / 0x8) *
+                (-parseInt(_0x10c400(0x1f7)) / 0x9) +
+              (parseInt(_0x10c400(0x1ee)) / 0xa) *
+                (-parseInt(_0x10c400(0x1e8)) / 0xb);
+            if (_0xf81ad0 === _0x244cd7) break;
+            else _0x224ee8["push"](_0x224ee8["shift"]());
+          } catch (_0x28351f) {
+            _0x224ee8["push"](_0x224ee8["shift"]());
           }
         }
-      })(_0x1e29, 0xedb16);
-      function _0x5e02(_0x38aea9, _0xa0116c) {
-        const _0x1e297b = _0x1e29();
+      })(_0x524f, 0xd0322);
+      let dateStr = _0x2b5a26(0x1ed);
+      const endTime = new Date(dateStr);
+      function _0x4571(_0x490116, _0x25f904) {
+        const _0x524fa1 = _0x524f();
         return (
-          (_0x5e02 = function (_0x5e02c3, _0x16506c) {
-            _0x5e02c3 = _0x5e02c3 - 0x1aa;
-            let _0x2637e6 = _0x1e297b[_0x5e02c3];
-            return _0x2637e6;
+          (_0x4571 = function (_0x457198, _0x2719d9) {
+            _0x457198 = _0x457198 - 0x1e8;
+            let _0x4880ac = _0x524fa1[_0x457198];
+            return _0x4880ac;
           }),
-          _0x5e02(_0x38aea9, _0xa0116c)
+          _0x4571(_0x490116, _0x25f904)
         );
       }
-      const endTime = new Date(dateStr);
       let timer;
       endTime > new Date()
         ? updateText()
         : ((timer = setInterval(() => {
-            countdownTimer("countdown2", endTime);
+            const _0x8af5b = _0x2b5a26;
+            countdownTimer(_0x8af5b(0x1ef), endTime);
           }, 0x3e8)),
-          countdownTimer(_0x529913(0x1ab), endTime));
-      function countdownTimer(_0xbfcd37, _0x13d0f7) {
-        const _0x4f0bf9 = _0x529913,
-          _0x557fe8 = new Date(),
-          _0x186cdc = _0x13d0f7 - _0x557fe8,
-          _0x42ccd2 = Math[_0x4f0bf9(0x1ae)](_0x186cdc / (0x3e8 * 0x3c * 0x3c)),
-          _0x3d98b0 = Math[_0x4f0bf9(0x1ae)](
-            (_0x186cdc / (0x3e8 * 0x3c)) % 0x3c
-          ),
-          _0x5a448c = Math["floor"]((_0x186cdc / 0x3e8) % 0x3c);
-        _0x5a448c >= 0x0 &&
-          _0x3d98b0 >= 0x0 &&
-          _0x42ccd2 >= 0x0 &&
-          (_0x4f0bf9(0x1b5) === _0x4f0bf9(0x1b5)
-            ? (clearInterval(timer), updateText())
-            : _0x17b5fe(_0x4f0bf9(0x1ab), _0x560c12)),
-          (document[_0x4f0bf9(0x1b7)](_0xbfcd37)["innerHTML"] =
-            _0x42ccd2 + ":" + _0x3d98b0 + ":" + _0x5a448c);
-      }
-      function _0x1e29() {
-        const _0x1acedb = [
-          "167WKxqLh",
-          "9150225RBbvTE",
-          "31526swqYWh",
-          "xITGi",
-          "50gzZNHB",
-          "getElementById",
-          "450dhTcLU",
-          "12228gqLibV",
-          "47716LcHMcI",
+          countdownTimer(_0x2b5a26(0x1ef), endTime));
+      function _0x524f() {
+        const _0x2ee376 = [
+          "250Ckxsck",
           "countdown2",
-          "5886wefWDo",
-          "6671ubeusp",
+          "8790fbwxIT",
+          "getElementById",
+          "mvPqD",
+          "4901680gjKXbX",
+          "6curofS",
+          "9360728WgjjQl",
+          "379345ATBuAe",
+          "9naNFPF",
+          "618915luJcOC",
+          "219390NQGFdE",
+          "878ejDgUr",
+          "5702809wCYjcW",
           "floor",
-          "23148uoXLRe",
-          "10748312ITvjFu",
-          "1610145AcZvLR",
+          "1592-03-14\x2012:00",
         ];
-        _0x1e29 = function () {
-          return _0x1acedb;
+        _0x524f = function () {
+          return _0x2ee376;
         };
-        return _0x1e29();
+        return _0x524f();
+      }
+      function countdownTimer(_0x4a18b0, _0x3ba699) {
+        const _0x33b1d4 = _0x2b5a26,
+          _0x398a6f = new Date(),
+          _0x53626e = _0x3ba699 - _0x398a6f,
+          _0x4f5aaa = Math[_0x33b1d4(0x1ec)](_0x53626e / (0x3e8 * 0x3c * 0x3c)),
+          _0x3ba92e = Math["floor"]((_0x53626e / (0x3e8 * 0x3c)) % 0x3c),
+          _0x42c8bc = Math[_0x33b1d4(0x1ec)]((_0x53626e / 0x3e8) % 0x3c);
+        _0x42c8bc >= 0x0 &&
+          _0x3ba92e >= 0x0 &&
+          _0x4f5aaa >= 0x0 &&
+          (_0x33b1d4(0x1f2) === _0x33b1d4(0x1f2)
+            ? (clearInterval(timer), updateText())
+            : _0x37e742(_0x33b1d4(0x1ef), _0x574229)),
+          (document[_0x33b1d4(0x1f1)](_0x4a18b0)["innerHTML"] =
+            _0x4f5aaa + ":" + _0x3ba92e + ":" + _0x42c8bc);
       }
 
       function updateText() {
@@ -317,7 +298,7 @@
           },
           {
             opacity: 1,
-            duration: 0.4,
+            duration: 0.3,
             stagger: 0.03,
           }
         )
@@ -328,7 +309,7 @@
           },
           {
             opacity: 1,
-            duration: 1,
+            duration: 0.6,
             stagger: 0.1,
           }
         );

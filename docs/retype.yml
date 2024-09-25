@@ -1,0 +1,11 @@
+input: .
+output: ../after-poems1/docs
+url: # Add your website address here
+branding:
+  title: Black Raven
+  label: Docs
+links:
+  - text: First Stage
+    link: https://ravenism.pages.dev
+footer:
+  copyright: "&copy; Copyright {{ year }}. All rights reserved."

@@ -72,6 +72,7 @@ df-messenger div.message {
   display: none;
   color: orange;
   font-family: "AR One Sans", sans-serif;
+  font-size: 1.1rem;
 }
 .visits {
   width: 100%;
@@ -88,9 +89,13 @@ hint-blue {
   color: rgb(47, 217, 211);
   font-weight: bold;
 }
+.teal {
+  color: rgb(47, 217, 211);
+}
 
 #audio,
-.link {
+.link,
+.bottom-link {
   text-align: center;
   margin: 8px auto;
   font-size: 1.3rem;

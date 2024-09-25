@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Source+Serif+4:opsz,wght@8..60,500&family=Space+Mono&family=Spectral:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        color: rgb(238, 238, 238);
+        text-align: center;
+        background: linear-gradient(
+          45deg,
+          #084d38,
+          black 50%,
+          rgb(55, 29, 126) /* black 80% */
+        );
+        min-height: 100vh;
+        min-width: 100vw;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        background-size: 400% 400%;
+        background-repeat: no-repeat;
+        /* background-position: 50% 50%; */
+        animation: gradientAnimation 16s ease-in-out infinite;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      @media screen and (max-width: 600px) {
+        body {
+          background: linear-gradient(
+            45deg,
+            #0d6148,
+            black 50%,
+            rgb(66, 37, 148) /* black 80% */
+          );
+          background-size: 400% 200%;
+          animation-duration: 10s;
+        }
+      }
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 60%;
+        }
+        50% {
+          background-position: 100% 60%;
+        }
+        100% {
+          background-position: 0% 60%;
+        }
+      }
+      div#countdownTimer {
+        font-family: "Space Mono", monospace;
+        font-size: 10rem;
+        transition: 0.4s;
+      }
+      div#message,
+      div#submessage {
+        font-family: "AR One Sans", sans-serif;
+        font-size: 2.5rem;
+        transition: 0.4s;
+      }
+      div#submessage {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-top: 10px;
+      }
+      img {
+        margin-top: 20px;
+        width: 200px;
+      }
+      .after-countdown #countdownTimer {
+        font-size: 5rem !important;
+        margin-bottom: 8px;
+      }
+      .after-countdown #message {
+        font-size: 2rem;
+      }
+      #countdown2 {
+        font-family: "Space Mono", monospace;
+        font-size: 3rem;
+        display: none;
+      }
+      @media screen and (max-width: 600px) {
+        div#countdownTimer {
+          font-size: 3.7rem;
+        }
+        div#message {
+          font-size: 1.5rem;
+        }
+        .after-countdown div#message {
+          font-size: 1.7rem;
+        }
+        img {
+          width: 150px;
+        }
+        .after-countdown #countdownTimer {
+          font-size: 3.7rem !important;
+        }
+        #countdown2 {
+          font-size: 2rem;
+        }
+      }
+      a {
+        /* border-radius: 30px; */
+        /* font-size: 30px; */
+        /* padding: 5px 18px; */
+        /* border: 1px solid white; */
+        font-family: "AR One Sans", sans-serif;
+        text-decoration: none;
+        color: rgb(34, 196, 160);
+        transition: 0.4s;
+      }
+      a:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      #submessage2 {
+        font-family: "Spectral", serif;
+        font-size: 1rem;
+        line-height: 1.2;
+        display: none;
+      }
+
+      .after-countdown #countdown2 {
+        display: block;
+      }
+      .after-countdown #submessage2 {
+        display: block;
+      }
+      .left {
+        text-align: left;
+        max-width: 90%;
+      }
+      div#submessage {
+        line-height: 1.6;
+        padding-top: 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="hint.css" />
+  </head>
+  <body class="after-countdown">
+    <div class="left">
+      <div id="countdownTimer" fade>Halfway Prize</div>
+      <div id="message" fade>
+        Wojsd weofifn andofiaew fhfn aoinf, dofina noinef hfoadf<br />
+      </div>
+      <div id="submessage" fade>
+        <hint-em
+          >This page asks you to register yourself with Black Raven as an entity
+          who has reached this stage and can communicate securely with
+          us.</hint-em
+        >
+        <br />
+        <h2>Claiming your Prize</h2>
+        <div class="teal">
+          Claim your halfway prize by emailing us all the URLs that led you to
+          this page. You do not have to follow the below steps for this.
+        </div>
+        <h3>Further instructions</h3>
+        <div class="" fade-in>
+          <div>
+            Generate your key pair using OpenPGP (like Gpg4win) and email your
+            public key to <b>blackraven3.141[at]gmail[dot]com</b><br />Sign with
+            your private key and encrypt the message "MPI_QER" with our public
+            key at <a href="./public_key.asc">/public_key.asc</a> and send it to
+            the same email address with the subject
+            <span style="color: orange">PUBLIC_KEY</span>.<br />
+            An example encrypted message is at
+            <a href="./example_message.txt">./example_message.txt</a>. It is
+            encrypted with our public key. The corresponding decrypted message
+            is at <a href="./example_decrypted.txt">./example_decrypted.txt</a>
+          </div>
+        </div>
+        <div fade-in>
+          <p>
+            You can attach your encrypted message as a file or paste it in the
+            body of the email.
+          </p>
+        </div>
+        <div id="submessage2" fade-in>
+          <p>
+            Remember the Raven's song.<br />
+            "Betrayal shunned, in our collective space,<br />
+            Unity prevails, no shadows to erase.<br />A tapestry of respect,
+            woven with grace.<br />In our realm, echoes of trust encase."
+          </p>
+          <p style="color: red; max-width: 1000px; font-size: 1.15rem">
+            You can try to fool us and receive multiple prizes by using multiple
+            emails to generate the above key pairs. <br />
+            If you dare to indulge in such trickery, understand that you forfeit
+            the right to claim true membership within the Black Raven, as a
+            harsh consequence of betraying our unwavering philosophy.<br />Though
+            you may momentarily elude detection, only you can reckon with the
+            erosion of your own integrity and the shadow cast upon your standing
+            in our esteemed realm.
+          </p>
+        </div>
+      </div>
+    </div>
+    <img src="./image.png" alt="" />
+
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script>
+      function updateText() {
+        document.getElementById("submessage").innerHTML = str;
+      }
+      //   let typeSplit = new SplitType("#message", {
+      //     types: "chars",
+      //     tagName: "span",
+      //   });
+      let timeline = gsap.timeline();
+      gsap.to("#message", {
+        // opacity: 1,
+        duration: 3,
+        text: "Words steadfast in messages that fly; what we must verify.",
+        // stagger: 0.03,
+      });
+      gsap.fromTo(
+        "[fade-in] *",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 1,
+          stagger: 0.1,
+        }
+      );
+    </script>
+    <script src="hint.js"></script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      chat-icon="https:&#x2F;&#x2F;ravenism.pages.dev&#x2F;image.png"
+      intent="WELCOME_INSTRUCTIONS"
+      chat-title="Black-Raven"
+      agent-id="fafc02f9-342a-4846-994b-060a73cb799b"
+      language-code="en"
+    ></df-messenger>
+  </body>
+</html>

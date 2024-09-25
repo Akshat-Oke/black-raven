@@ -105,14 +105,15 @@
         }
       }
       a {
-        border-radius: 30px;
-        font-size: 30px;
-        padding: 5px 18px;
-        border: 1px solid white;
+        /* border-radius: 30px; */
+        /* font-size: 30px; */
+        /* padding: 5px 18px; */
+        /* border: 1px solid white; */
         font-family: "AR One Sans", sans-serif;
         text-decoration: none;
-        color: white;
+        color: rgb(34, 196, 160) !important;
         transition: 0.4s;
+        display: inline-block !important;
       }
       a:hover {
         background: rgba(255, 255, 255, 0.5);
@@ -170,15 +171,32 @@
         The ultimate writing, an empowering wording.<br />The zenith is near,
         the abode that Ravens hold dear.
       </div>
+      <p></p>
+      <div class="hint">
+        Use <a href="./mpi-qer.html">Raven Studies</a> and concealed message in
+        <a href="./ravens-message.wav">Raven's message</a> together. Convert the
+        words on this page to numbers.
+      </div>
+      <p></p>
+      <div class="hint teal">
+        The "_______ __________" is on the external internet. The first word
+        must be what the concealed message says. The final message is a random
+        constructed sentence.
+      </div>
       <div id="submessage" fade>
         <p>
           The Raven, a cryptic guide, a book it names,<br />
-          Inscribed words unfold, in enigmatic flames:
+          The <hint-em>Major</hint-em>'s words whisper, in enigmatic flames:
         </p>
         <p>
-          Welcome office, unhappy unsing. Repose life-pie, achieve ideas
-          mellow-ly mail-me.
+          "Welcome office, newbury unseen. Repose life-pie, achieve ideas
+          mellow-ly mail-me."
         </p>
+        <div class="hint">
+          Map the above to numbers, and then book-cipher to words again. The
+          message will have 10 words. The first number is 573 and it maps to
+          "evil".
+        </div>
       </div>
     </div>
 
@@ -186,9 +204,9 @@
       <img src="./image.png" alt="Logo" />
       <div id="countdown2"></div>
       <div id="submessage2">
-        Mist, cellophane breaths, rubbing on window latches,<br />
-        A creamlike mist, rubbing, muzzling on window lattices.<br />
-        <!-- A hint will be revealed in the twilight embraces. -->
+        Midnights so dreary, tired and weary,<br />
+        Silently pondering volumes extolling all by-now obsolete lore,<br />
+        During my rather long nap — the weirdest tap!<br />
       </div>
     </div>
 
@@ -237,7 +255,7 @@
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <df-messenger
       chat-icon="https:&#x2F;&#x2F;ravenism.pages.dev&#x2F;image.png"
-      intent="WELCOME"
+      intent="WELCOME_WRITES"
       chat-title="Black-Raven"
       agent-id="fafc02f9-342a-4846-994b-060a73cb799b"
       language-code="en"

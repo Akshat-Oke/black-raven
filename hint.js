@@ -22,6 +22,26 @@ if (visits) {
     document.body.appendChild(visitsElement);
 }
 
-document.body.insertAdjacentHTML("beforeend", `<a id="audio" href="./ravens-message.wav"
+document.body.insertAdjacentHTML("beforeend", `<a class="bottom-link" href="./ravens-message.wav"
 >Raven's message: /ravens-message.wav</a
->`)
+><br/>
+<a class="bottom-link" href="https://whatsapp.com/channel/0029Va91PZqHbFVD8tOA0A3L"
+>Subscribe for announcements</a
+>
+<br/>
+<a class="bottom-link" href="https://akshat-oke.github.io/black-raven/solutions"
+>Solutions</a
+>
+`)
+
+function displayAlert(id, message) {
+    if (!localStorage[id]) {
+        window.alert(message)
+        localStorage[id] = true;
+    }
+}
+
+// use the function for the above instead
+displayAlert("announcement1", "New announcements will be in WhatsApp channel")
+
+displayAlert("solutions1", "Solutions are at the link on the bottom of the page.")
